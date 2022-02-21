@@ -10,7 +10,7 @@ export default function Copyright() {
       <Container className={classNames(styles.container)} maxWidth="xl">
         <Paper className={classNames(styles.paper)}>
           <Link href="/about" color="secondary">
-            Hi
+            Hi, test
           </Link>
         </Paper>
       </Container>
