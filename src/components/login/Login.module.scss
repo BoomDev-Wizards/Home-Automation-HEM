@@ -1,0 +1,27 @@
+@use "../../styles/colors";
+
+.login-form {
+    padding: 20px;
+    text-align: center;
+}
+
+.input-field {
+    height: 50px;
+    padding: 5px 15px !important;
+    margin-bottom: 15px !important;
+    background-color: colors.$background_input;
+
+    *::before,
+    *::after {
+        border: none !important;
+    }
+
+    input {
+        height: 30px;
+        line-height: 1rem;
+    }
+}
+
+.button {
+    border-radius: 25px !important;
+}
