@@ -8,7 +8,9 @@ export default function Login() {
     return (
         <div className={classNames(styles['login-form'])}>
             <TextField
-                variant="outlined"
+                fullWidth
+                type="email"
+                variant="standard"
                 className={classNames(styles["input-field"])}
                 InputProps={{
                     startAdornment: (
@@ -19,7 +21,9 @@ export default function Login() {
                 }}
             />
             <TextField
-                variant="outlined"
+                fullWidth
+                type="password"
+                variant="standard"
                 className={classNames(styles["input-field"])}
                 InputProps={{
                     startAdornment: (
@@ -30,6 +34,7 @@ export default function Login() {
                 }}
             />
             <Button
+                fullWidth
                 variant="contained"
                 className={classNames(styles["button"])}
             >
