@@ -6,7 +6,7 @@ import LockIcon from '@mui/icons-material/Lock';
 
 export default function Login() {
     return (
-        <div className={classNames(styles['login-form'])}>
+        <div className={classNames(styles["login-form"])}>
             <TextField
                 fullWidth
                 type="email"
