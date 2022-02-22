@@ -1,0 +1,11 @@
+@use "../../styles/colors";
+
+.time-wrapper {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+}
+
+.title {
+    color: colors.$primary_main;
+}

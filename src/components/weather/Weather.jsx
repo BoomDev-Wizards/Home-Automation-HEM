@@ -13,7 +13,7 @@ export default function Weather({ degrees, type }) {
                     <Typography variant="body" className={classNames(styles["title"])} >
                         Weather
                     </Typography>
-                    <Typography variant="h1" className={classNames(styles["degrees"])} >
+                    <Typography variant="h1" >
                         {degrees}&deg;
                     </Typography>
                 </Grid>
