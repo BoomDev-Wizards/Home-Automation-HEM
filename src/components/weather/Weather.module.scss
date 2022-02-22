@@ -1,0 +1,18 @@
+@use "../../styles/colors";
+
+.weather-wrapper {
+    display: block;
+}
+
+.grid-container {
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    width: 90px;
+}
+
+.title {
+    color: colors.$primary_main;
+}
