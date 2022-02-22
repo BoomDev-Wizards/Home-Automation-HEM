@@ -1,7 +1,7 @@
 @use "../../styles/colors";
 
 .header-wrapper{
-    margin:50px auto;
+    margin:0px auto;
     width: 75vw;
     height: 195px;
     min-width: 950px;
@@ -20,4 +20,8 @@
     justify-content: space-between;
     align-items: center;
     width: 465px;
+}
+
+.header-wrapper .paper .left{
+    position: relative;
 }
