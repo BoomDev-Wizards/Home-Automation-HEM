@@ -8,7 +8,11 @@ export default function Time() {
     useEffect(() => {
         setInterval(() => {
             const date = new Date();
-            setTimeNow(`${date.getHours()}:${date.getMinutes()}`);
+            if(date.getMinutes()<10){
+                setTimeNow(`${date.getHours()}:0${date.getMinutes()}`);
+            }else{
+                setTimeNow(`${date.getHours()}:${date.getMinutes()}`);
+            }
         }, 1000);
     }, []);
 
