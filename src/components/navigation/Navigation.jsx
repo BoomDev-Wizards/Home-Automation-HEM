@@ -58,7 +58,7 @@ export default function Navigation() {
                                 {text == 'Apartment' || text == 'House' ? <HomeOutlinedIcon /> : <BedOutlinedIcon />}
                             </ListItemIcon>
                             <ListItemText primary={text} />
-                            <Badge badgeContent={4} color="error" className={classNames(styles["badge"])} />
+                            <Badge badgeContent={4} color={text == 'Apartment' || text == 'House' ? "secondary" : "error"} className={classNames(styles["badge"])} />
                         </ListItem>
                     ))}
                 </List>
