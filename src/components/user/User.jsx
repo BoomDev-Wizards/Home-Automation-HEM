@@ -11,9 +11,9 @@ export default function User({ avatar, name, size, headingSize = "h6", hasWelcom
                         <Avatar alt={name} src={avatar} sx={{ width: size, height: size }} />
                     </Grid>
                     <Grid item className={classNames(styles.username)}>
-                        {hasWelcome ? 
-                        <Typography className={classNames(styles.welcome)}>Welcome home,</Typography> 
-                        : null}
+                        {hasWelcome ?
+                            <Typography className={classNames(styles.welcome)}>Welcome back,</Typography>
+                            : null}
                         <Typography variant={headingSize} >
                             {name}
                         </Typography>

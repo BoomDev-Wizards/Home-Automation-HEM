@@ -1,0 +1,27 @@
+@use "../../styles/colors";
+
+.navigation-container {
+    display: block;
+}
+
+.user-container {
+    display: flex;
+    margin-top: 30px;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.badge>span {
+    border-radius: 5px !important;
+}
+
+.header-item,
+.header-item>* {
+    color: colors.$primary_main !important;
+}
+
+.header-item {
+    margin-top: 20px !important;
+    background-color: rgba(colors.$primary_main, 5%) !important;
+}
