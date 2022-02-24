@@ -6,6 +6,7 @@
     background: rgb(224,85,161);
     background: linear-gradient(90deg, rgba(224,85,161,1) 0%, rgba(234,102,95,1) 100%);
     border-radius: 20px;
+    overflow: hidden;
 }
 
 .thermostat-container .circular-progress{
@@ -13,7 +14,8 @@
     width: 450px;
     height: 450px;
     position: absolute;
-    top: -3px;
+    top: 0px;
+    
 
     .progress circle{
         color: colors.$text_primary;
@@ -38,7 +40,6 @@
     position: relative;
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid black;
     overflow: hidden;
 }
 
@@ -71,6 +72,8 @@
 }
 
 .thermostat-container .linear-progress{
+
+    background: rgba(0, 0, 0, 0.05);
 
     span{
         text-transform: uppercase;
