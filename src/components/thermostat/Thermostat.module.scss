@@ -55,10 +55,18 @@
         margin-left:13px
     }
 
+    button{
+        padding: 0;
+        border-radius: 100%;
+        background-color: transparent;
+        min-width: unset;
+        width: 40px;
+        height: 40px;
+    }
+
     svg{
         color: colors.$text_primary;
         font-size: 3rem;
-        cursor: pointer;
     }
 }
 
