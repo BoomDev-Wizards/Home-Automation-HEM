@@ -1,4 +1,5 @@
 import * as React from "react";
+import Card from "../src/components/card/Card";
 import Header from "../src/components/header/Header";
 import Navigation from "../src/components/navigation/Navigation";
 import Time from "../src/components/time/Time";
@@ -16,7 +17,8 @@ export default function Index() {
           <Time />
         </React.Fragment>}
       />
-      <Navigation />
+      <Card iconUrl={'/images/alarm-clock.svg'} outlined={true}/>
+      {/* <Navigation /> */}
     </React.Fragment>
   )
 }
