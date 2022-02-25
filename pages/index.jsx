@@ -22,7 +22,7 @@ export default function Index() {
           <Time />
         </Fragment>}
       />
-      <Scenes cards={devices} />
+      <Scenes cards={devices.devices} />
       {/* <Navigation /> */}
     </Fragment>
   )
