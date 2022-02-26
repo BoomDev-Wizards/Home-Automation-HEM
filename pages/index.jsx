@@ -7,6 +7,7 @@ import User from "../src/components/user/User";
 import Weather from "../src/components/weather/Weather";
 import Cameras from "../src/components/cameras/Cameras";
 import devicesData from "../data/devices.json";
+import Energy from "../src/components/energy/Energy";
 
 export default function Index() {
   const [devices, setDevices] = useState([]);
@@ -16,27 +17,24 @@ export default function Index() {
 
   const cameras = {
     "cameras": [
-      {
-        "videoUrl": "/cameras/balcony.mp4"
-      },
-      {
-        "videoUrl": "/cameras/bathroom.mp4"
-      },
-      {
-        "videoUrl": "/cameras/front-door.mp4"
-      },
-      {
-        "videoUrl": "/cameras/garden.mp4"
-      },
-      {
-        "videoUrl": "/cameras/kitchen.mp4"
-      },
-      {
-        "videoUrl": "/cameras/living room 2.mp4"
-      },
+      { "videoUrl": "/cameras/balcony.mp4" },
+      { "videoUrl": "/cameras/bathroom.mp4" },
+      { "videoUrl": "/cameras/front-door.mp4" },
+      { "videoUrl": "/cameras/garden.mp4" },
+      { "videoUrl": "/cameras/kitchen.mp4" },
+      { "videoUrl": "/cameras/living room 2.mp4" },
     ],
     "hasButton": true
   }
+
+  const chartData = [
+    { energy: 25, hour: 12 },
+    { energy: 13, hour: 13 },
+    { energy: 14, hour: 14 },
+    { energy: 15, hour: 15 },
+    { energy: 15, hour: 16 },
+    { energy: 10, hour: 17 },
+  ];
 
   return (
     <Fragment>
@@ -47,7 +45,8 @@ export default function Index() {
           <Time />
         </Fragment>}
       />
-      <Cameras cameras={cameras.cameras} hasButton={cameras.hasButton} />
+      <Energy data={chartData} />
+      {/* <Cameras cameras={cameras.cameras} hasButton={cameras.hasButton} /> */}
       {/* <Scenes cards={devices.devices} /> */}
       {/* <Navigation /> */}
     </Fragment>

@@ -1,0 +1,17 @@
+@use "../../styles/colors";
+
+.energy-container {
+    display: block;
+}
+
+.period-select {
+    min-width: 150px;
+    border-radius: 20px !important;
+    color: colors.$primary_main !important;
+    border-color: colors.$primary_main !important;
+    background-color: rgba(colors.$primary_main, 5%);
+}
+
+.energy-recharts {
+    margin-top: 2rem;
+}
