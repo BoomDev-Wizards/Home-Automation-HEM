@@ -14,11 +14,10 @@ export default function Cameras({ cameras = [], hasButton = false }) {
         <div className={classNames(styles["cameras-container"])} >
             <Grid container spacing={2}>
                 <Grid item xs={8}>
-                    <video width="800" controls autoPlay muted className={classNames(styles["video"])}  >
+                    <video width="800" controls autoPlay muted className={classNames(styles["video"])} >
                         <source src={videoUrl} type="video/mp4" />
                         Your browser does not support HTML video.
                     </video>
-                    {videoUrl}
                 </Grid>
                 <Grid item xs={4}>
                     <Grid container spacing={1}>
