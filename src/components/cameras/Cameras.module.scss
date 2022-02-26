@@ -1,0 +1,19 @@
+@use "../../styles/colors";
+
+.cameras-container {
+    display: block;
+}
+
+.grid-item {
+    line-height: 1em;
+
+    img {
+        display: block;
+        max-width: 100%;
+        border-radius: 15px;
+    }
+}
+
+.video {
+    width: 100%;
+}

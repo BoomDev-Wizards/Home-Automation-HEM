@@ -1,7 +1,7 @@
 @use "../../styles/colors";
 
-.card{
-    width: 243px;
+.card {
+    min-width: 243px;
     height: 183px;
     background-color: rgba(colors.$primary_main, 0.07);
     border-radius: 20px;
@@ -10,12 +10,12 @@
     justify-content: center;
     align-items: center;
 
-    .button{
+    .button {
         width: 100%;
         height: 100%;
         padding: unset;
 
-        .wrapper{
+        .wrapper {
             background: transparent;
             box-shadow: none;
             display: flex;
@@ -32,7 +32,6 @@
 
 }
 
-.outlined{
+.outlined {
     border: 3px solid colors.$primary_main;
 }
-

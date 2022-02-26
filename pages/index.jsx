@@ -5,6 +5,7 @@ import Scenes from "../src/components/scenes/Scenes";
 import Time from "../src/components/time/Time";
 import User from "../src/components/user/User";
 import Weather from "../src/components/weather/Weather";
+import Cameras from "../src/components/cameras/Cameras";
 import devicesData from "../data/devices.json";
 
 export default function Index() {
@@ -12,6 +13,30 @@ export default function Index() {
   useEffect(() => {
     setDevices(devicesData);
   }, []);
+
+  const cameras = {
+    "cameras": [
+      {
+        "videoUrl": "/cameras/balcony.mp4"
+      },
+      {
+        "videoUrl": "/cameras/bathroom.mp4"
+      },
+      {
+        "videoUrl": "/cameras/front-door.mp4"
+      },
+      {
+        "videoUrl": "/cameras/garden.mp4"
+      },
+      {
+        "videoUrl": "/cameras/kitchen.mp4"
+      },
+      {
+        "videoUrl": "/cameras/living room 2.mp4"
+      },
+    ],
+    "hasButton": true
+  }
 
   return (
     <Fragment>
@@ -22,7 +47,8 @@ export default function Index() {
           <Time />
         </Fragment>}
       />
-      <Scenes cards={devices.devices} />
+      <Cameras cameras={cameras.cameras} hasButton={cameras.hasButton} />
+      {/* <Scenes cards={devices.devices} /> */}
       {/* <Navigation /> */}
     </Fragment>
   )
