@@ -14,16 +14,22 @@ export default function Cameras({ cameras = [], hasButton = false }) {
         <div className={classNames(styles["cameras-container"])} >
             <Grid container spacing={2}>
                 <Grid item xs={8}>
-                    <video width="800" controls autoPlay muted className={classNames(styles["video"])} >
+                    <video width="800" controls muted autoPlay loop className={classNames(styles["visible"])} >
                         <source src={videoUrl} type="video/mp4" />
                         Your browser does not support HTML video.
                     </video>
+                    {cameras.map((camera, key) => (
+                        <video key={key} width="800" controls muted className={classNames(styles["hidden"])} >
+                            <source src={camera.videoUrl} type="video/mp4" />
+                            Your browser does not support HTML video.
+                        </video>
+                    ))}
                 </Grid>
                 <Grid item xs={4}>
                     <Grid container spacing={1}>
                         {cameras.map((camera, key) => (
                             <Grid key={key} item xs={6} className={classNames(styles["grid-item"])}>
-                                <Card iconUrl={"https://via.placeholder.com/300x250"} onClick={startCamera} onClickAttr={camera.videoUrl} />
+                                <Card iconUrl={"https://via.placeholder.com/300x250"} onClick={startCamera} />
                             </Grid>
                         ))}
                         {hasButton &&
