@@ -1,7 +1,7 @@
 @use "../../styles/colors";
 
 .card {
-    min-width: 243px;
+    width: 243px;
     height: 183px;
     background-color: rgba(colors.$primary_main, 0.07);
     border-radius: 20px;
@@ -26,6 +26,14 @@
 
             * {
                 padding: unset;
+            }
+
+            .card_title{
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 16px;
+                color: colors.$primary_main;
             }
         }
     }

@@ -8,6 +8,8 @@ import Weather from "../src/components/weather/Weather";
 import Cameras from "../src/components/cameras/Cameras";
 import devicesData from "../data/devices.json";
 import Energy from "../src/components/energy/Energy";
+import Card from "../src/components/card/Card";
+import Rooms from "../src/components/rooms/Rooms";
 
 export default function Index() {
   const [devices, setDevices] = useState([]);
@@ -36,6 +38,14 @@ export default function Index() {
     { energy: 10, hour: 17 },
   ];
 
+  const roomsArr= [
+    {url:'/images/bed.svg', title:'bedroom'},
+    {url:'/images/bed.svg', title:'bedroom'},
+    {url:'/images/bed.svg', title:'bedroom'},
+    {url:'/images/bed.svg', title:'bedroom'},
+    {url:'/images/bed.svg', title:'bedroom'},
+  ]
+
   return (
     <Fragment>
       <Header
@@ -45,7 +55,8 @@ export default function Index() {
           <Time />
         </Fragment>}
       />
-      <Energy data={chartData} />
+      <Rooms rooms={roomsArr}/>
+      {/* <Energy data={chartData} /> */}
       {/* <Cameras cameras={cameras.cameras} hasButton={cameras.hasButton} /> */}
       {/* <Scenes cards={devices.devices} /> */}
       {/* <Navigation /> */}
