@@ -14,7 +14,7 @@ export default function Energy({ data }) {
         <div className={classNames(styles["energy-container"])} >
             <Grid container spacing={2} justifyContent={"space-between"}>
                 <Grid item>
-                    <Typography variant="h3" >
+                    <Typography variant="h4" >
                         Energy
                     </Typography>
                 </Grid>

@@ -1,0 +1,36 @@
+@use "../src/styles/colors";
+
+
+.wrapper{
+    margin-left: 260px;
+    width: calc(100vw - 280px);
+    background-color: colors.$background_light;
+    position: relative;
+
+    .hero_line{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 200px;
+        background-color: colors.$primary_main;
+        z-index: 0;
+    }
+
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .comp_name{
+        margin-bottom: 20px;
+    }
+
+    .head{
+        position: relative;
+        z-index: 10;
+    }
+}
+

@@ -12,6 +12,9 @@ export default function Scenes({ cards = [], selected }) {
                         <Card iconUrl={card.iconUrl} />
                     </Grid>
                 ))}
+                <Grid item xs={4}>
+                    <Card iconUrl={'/images/plus.svg'} outlined={true}/>
+                </Grid>
             </Grid>
         </div>
     )

@@ -8,8 +8,12 @@ import Weather from "../src/components/weather/Weather";
 import Cameras from "../src/components/cameras/Cameras";
 import devicesData from "../data/devices.json";
 import Energy from "../src/components/energy/Energy";
-import Card from "../src/components/card/Card";
 import Rooms from "../src/components/rooms/Rooms";
+import { Container, Grid, Typography } from "@mui/material";
+import Thermostat from "../src/components/thermostat/Thermostat";
+
+import styles from "./Dashboard.module.scss";
+import classNames from "classnames";
 
 export default function Index() {
   const [devices, setDevices] = useState([]);
@@ -26,7 +30,7 @@ export default function Index() {
       { "videoUrl": "/cameras/kitchen.mp4" },
       { "videoUrl": "/cameras/living room 2.mp4" },
     ],
-    "hasButton": true
+    "hasButton": false
   }
 
   const chartData = [
@@ -38,28 +42,61 @@ export default function Index() {
     { energy: 10, hour: 17 },
   ];
 
-  const roomsArr= [
-    {url:'/images/bed.svg', title:'bedroom'},
-    {url:'/images/bed.svg', title:'bedroom'},
-    {url:'/images/bed.svg', title:'bedroom'},
-    {url:'/images/bed.svg', title:'bedroom'},
-    {url:'/images/bed.svg', title:'bedroom'},
+  const tempDataArr = [
+    { temperature: 25, hour: 12 },
+    { temperature: 13, hour: 13 },
+    { temperature: 14, hour: 14 },
+    { temperature: 15, hour: 15 },
+    { temperature: 15, hour: 16 },
+    { temperature: 10, hour: 17 },
+  ]
+
+  const roomsArr = [
+    { url: '/images/bed.svg', title: 'bedroom' },
+    { url: '/images/bed.svg', title: 'bedroom' },
+    { url: '/images/bed.svg', title: 'bedroom' },
+    { url: '/images/bed.svg', title: 'bedroom' },
+    { url: '/images/bed.svg', title: 'bedroom' },
   ]
 
   return (
     <Fragment>
-      <Header
-        left={<User name="John Doe" avatar="/images/avatar.png" size={114} hasWelcome={true} headingSize="h1" />}
-        right={<Fragment>
-          <Weather degrees={22} type="cloudy" />
-          <Time />
-        </Fragment>}
-      />
-      <Rooms rooms={roomsArr}/>
-      {/* <Energy data={chartData} /> */}
-      {/* <Cameras cameras={cameras.cameras} hasButton={cameras.hasButton} /> */}
-      {/* <Scenes cards={devices.devices} /> */}
-      {/* <Navigation /> */}
+      <Navigation />
+      <main className={classNames(styles["wrapper"])}>
+        <div className={classNames(styles["hero_line"])}></div>
+        <Container className={classNames(styles["container"])} maxWidth={false}>
+          <Grid container spacing={2} alignItems={'stretch'}>
+            <Grid item xs={12}>
+              <Header className={classNames(styles["head"])}
+                left={<User name="John Doe" avatar="/images/avatar.png" size={114} hasWelcome={true} headingSize="h1" />}
+                right={<Fragment>
+                  <Weather degrees={22} type="cloudy" />
+                  <Time />
+                </Fragment>}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <Typography variant="h4" className={classNames(styles["comp_name"])}>Thermostat</Typography>
+              <Thermostat data={tempDataArr} />
+            </Grid>
+            <Grid item xs={6}>
+              <Typography variant="h4" className={classNames(styles["comp_name"])} >Scenes</Typography>
+              <Scenes cards={devices.devices} />
+            </Grid>
+            <Grid item xs={6}>
+              <Typography variant="h4">Cameras</Typography>
+              <Cameras cameras={cameras.cameras} hasButton={cameras.hasButton} />
+            </Grid>
+            <Grid item xs={6}>
+              <Energy data={chartData} />
+            </Grid>
+            <Grid item item xs={12}>
+              <Typography variant="h4" className={classNames(styles["comp_name"])}>Rooms</Typography>
+              <Rooms rooms={roomsArr} />
+            </Grid>
+          </Grid>
+        </Container>
+      </main>
     </Fragment>
   )
 }

@@ -1,7 +1,7 @@
 @use "../../styles/colors";
 
 .thermostat-container{
-    width: 802px;
+    max-width: 802px;
     height: 402px;
     background: rgb(224,85,161);
     background: linear-gradient(90deg, rgba(224,85,161,1) 0%, rgba(234,102,95,1) 100%);
@@ -15,7 +15,6 @@
     height: 450px;
     position: absolute;
     top: 0px;
-    
 
     .progress circle{
         color: colors.$text_primary;
@@ -35,7 +34,7 @@
 }
 
 .thermostat-container .progress-wrapper{
-    width: 802px;
+    max-width: 802px;
     height: 232px;
     position: relative;
     display: flex;

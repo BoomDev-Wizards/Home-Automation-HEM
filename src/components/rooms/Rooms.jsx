@@ -9,12 +9,12 @@ export default function Rooms({rooms}) {
             <Grid container spacing={2}>
                 {rooms.map((el, index) => {
                     return (
-                        <Grid item key={index}>
+                        <Grid item key={index} xs={2}>
                             <Card iconUrl={el.url} title={el.title} />
                         </Grid>
                     )
                 })}
-                <Grid item>
+                <Grid item xs={2}>
                     <Card className={classNames(styles["rooms-add"])} 
                     iconUrl={'/images/outlined-plus.svg'} 
                     title={"add room"} outlined={true} />
