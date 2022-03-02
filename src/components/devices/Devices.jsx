@@ -14,9 +14,9 @@ export default function Devices({ devices }) {
                         </Grid>
                     )
                 })}
-                <Grid item xs={4}>
+                {/* <Grid item xs={4}>
                     <Card iconUrl={'/images/plus.svg'} variant={'off'} outlined={true} />
-                </Grid>
+                </Grid> */}
             </Grid>
         </div>
     )
