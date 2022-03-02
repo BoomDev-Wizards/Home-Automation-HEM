@@ -19,7 +19,7 @@ export default function Card({ iconUrl, outlined = false, onClick, title, varian
                             ? <img src={iconUrl} alt="icon" className={classNames(styles.card_icon)}/>
                             : null}
                         {title ? <Typography className={classNames(styles.card_title)}>{title}</Typography> : null}
-                        {variant==="offline" ? <Chip label="!" className={classNames(styles.card_chip)}/> : null}
+                        <Chip label="!" className={classNames(styles.card_chip, variant!=="offline" ? styles.chip_hidden : null )}/>
                     </CardContent>
                 </CardComp>
             </Button>
