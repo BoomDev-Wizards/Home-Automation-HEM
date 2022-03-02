@@ -1,17 +1,25 @@
 import styles from "./Card.module.scss";
 import classNames from "classnames";
-import { Button, CardContent, Card as CardComp, Typography } from "@mui/material";
+import { Button, CardContent, Card as CardComp, Typography, Chip } from "@mui/material";
 
-export default function Card({ iconUrl, outlined = false, onClick, title }) {
+export default function Card({ iconUrl, outlined = false, onClick, title, variant = 'on' }) {
+
+    const variants = {
+        "on": "card_on",
+        "off": "card_off",
+        "offline": "card_offline",
+    }
+
     return (
-        <div className={classNames(styles.card, outlined ? styles.outlined : null)}>
+        <div className={classNames(styles[variants[variant]], styles.card , outlined ? styles.outlined : null)}>
             <Button variant="text" className={classNames(styles.button)} onClick={onClick}>
                 <CardComp className={classNames(styles.wrapper)}>
                     <CardContent>
                         {iconUrl
-                            ? <img src={iconUrl} alt="icon" />
+                            ? <img src={iconUrl} alt="icon" className={classNames(styles.card_icon)}/>
                             : null}
-                        {title?<Typography className={classNames(styles.card_title)}>{title}</Typography>:null}
+                        {title ? <Typography className={classNames(styles.card_title)}>{title}</Typography> : null}
+                        {variant==="offline" ? <Chip label="!" className={classNames(styles.card_chip)}/> : null}
                     </CardContent>
                 </CardComp>
             </Button>
