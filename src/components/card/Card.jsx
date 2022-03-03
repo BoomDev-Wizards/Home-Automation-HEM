@@ -2,7 +2,7 @@ import styles from "./Card.module.scss";
 import classNames from "classnames";
 import { Button, CardContent, Card as CardComp, Typography, Chip } from "@mui/material";
 
-export default function Card({ iconUrl, outlined = false, onClick, title, variant = 'on' }) {
+export default function Card({ iconUrl, outlined = false, onClick, title, variant = 'off' }) {
 
     const variants = {
         "on": "card_on",
