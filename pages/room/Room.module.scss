@@ -1,9 +1,9 @@
-@use "../src/styles/colors";
-
+@use "../../src/styles/colors";
 
 .wrapper{
     margin-left: 260px;
     width: calc(100vw - 280px);
+    min-height: 100vh;
     background-color: colors.$background_light;
     position: relative;
 
@@ -27,6 +27,24 @@
     .comp_name{
         margin-bottom: 20px;
     }
+
+}
+
+.room{
+    padding-top: 10px;
+    padding-left: 75px;
+}
+
+.dev_head{
+    display: block;
+    color: colors.$primary_main;
+}
+
+.room_count{
+    display: block;
 }
 
 
+.right_head{
+    text-align: center;
+}

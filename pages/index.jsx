@@ -71,7 +71,7 @@ export default function Index() {
                 left={<User name="John Doe" avatar="/images/avatar.png" size={114} hasWelcome={true} headingSize="h1" />}
                 right={<Fragment>
                   <Weather degrees={22} type="cloudy" />
-                  <Time />
+                  <Time className={classNames(styles.time)}/>
                 </Fragment>}
               />
             </Grid>
