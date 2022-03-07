@@ -3,17 +3,17 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Link from "../../src/components/link/Link";
-import Card from "../../src/components/card/Card";
 import Devices from "../../src/components/devices/Devices";
+import Modal from "../../src/components/modal/Modal";
 
 export default function About() {
 
-  const cardsArr = [
-    {"title": "on", "iconUrl": "/images/bulb.svg"},
-    {"title": "off", "iconUrl": "/images/bulb.svg"},
-    {"title": "off", "iconUrl": "/images/plug.svg"},
-    {"title": "offline", "iconUrl": "/images/plug.svg"},
-  ]
+  // const cardsArr = [
+  //   {"title": "on", "iconUrl": "/images/bulb.svg"},
+  //   {"title": "off", "iconUrl": "/images/bulb.svg"},
+  //   {"title": "off", "iconUrl": "/images/plug.svg"},
+  //   {"title": "offline", "iconUrl": "/images/plug.svg"},
+  // ]
  
   return (
     <Container maxWidth="sm">
@@ -24,7 +24,10 @@ export default function About() {
           </Button>
         </Grid>
       </Grid>
-      <Devices devices={cardsArr}/>
+      {/* <Devices devices={cardsArr}/> */}
+      <Modal open={true} title='Modal Title' buttonText='Modal Action'>
+        <h3>Some text to fit in</h3>
+      </Modal>
     </Container>
   );
 }
