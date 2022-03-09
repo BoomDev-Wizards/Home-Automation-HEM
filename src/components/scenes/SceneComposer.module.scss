@@ -1,0 +1,22 @@
+@use "../../styles/colors";
+
+.composer-container{
+    width: 840px;
+    max-height: 650px;
+    overflow-y: scroll;
+
+    .room-title{
+        margin: 20px 0px;
+    }
+}
+
+.composer-container::-webkit-scrollbar{
+    width: 5px;
+    background-color: rgba(colors.$primary_main, 0.1);
+}
+
+.composer-container::-webkit-scrollbar-thumb{
+    width: 5px;
+    background-color: colors.$primary_main;
+    border-radius: 15px;
+}

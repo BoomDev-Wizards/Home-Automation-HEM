@@ -5,6 +5,11 @@ import Grid from "@mui/material/Grid";
 import Link from "../../src/components/link/Link";
 import Devices from "../../src/components/devices/Devices";
 import Modal from "../../src/components/modal/Modal";
+import SceneComposer from "../../src/components/scenes/SceneComposer";
+
+import deviceData from "../../data/devices.json";
+import roomData from "../../data/rooms.json";
+
 
 export default function About() {
 
@@ -14,6 +19,17 @@ export default function About() {
   //   {"title": "off", "iconUrl": "/images/plug.svg"},
   //   {"title": "offline", "iconUrl": "/images/plug.svg"},
   // ]
+
+  const [devices,setDevices] = React.useState([]);
+  React.useEffect(()=>{
+    setDevices(deviceData.devices);
+  },[])
+
+  const [rooms,setRooms] = React.useState([]);
+  React.useEffect(()=>{
+    setRooms(roomData.rooms);
+  },[])
+
  
   return (
     <Container maxWidth="sm">
@@ -25,9 +41,10 @@ export default function About() {
         </Grid>
       </Grid>
       {/* <Devices devices={cardsArr}/> */}
-      <Modal open={true} title='Modal Title' buttonText='Modal Action'>
+      {/* <Modal open={true} title='Modal Title' buttonText='Modal Action'>
         <h3>Some text to fit in</h3>
-      </Modal>
+      </Modal> */}
+      <SceneComposer devices={devices} rooms={rooms}/>
     </Container>
   );
 }
