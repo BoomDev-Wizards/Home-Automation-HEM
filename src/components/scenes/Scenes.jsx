@@ -18,9 +18,9 @@ export default function Scenes({ cards = [], selected }) {
                     </Grid>
                     </Fragment>
                 ))}
-                <Grid item xs={4}>
+                {/* <Grid item xs={4}>
                     <Card iconUrl={'/images/plus.svg'} outlined={true}/>
-                </Grid>
+                </Grid> */}
             </Grid>
         </div>
     )
