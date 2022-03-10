@@ -9,6 +9,7 @@ import SceneComposer from "../../src/components/scenes/SceneComposer";
 
 import deviceData from "../../data/devices.json";
 import roomData from "../../data/rooms.json";
+import AddScene from "../../src/components/scenes/AddScene";
 
 
 export default function About() {
@@ -44,7 +45,8 @@ export default function About() {
       {/* <Modal open={true} title='Modal Title' buttonText='Modal Action'>
         <h3>Some text to fit in</h3>
       </Modal> */}
-      <SceneComposer devices={devices} rooms={rooms}/>
+      {/* <SceneComposer devices={devices} rooms={rooms}/> */}
+      <AddScene rooms={rooms} devices={devices}/>
     </Container>
   );
 }

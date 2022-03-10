@@ -14,9 +14,9 @@ export default function Modal({ open, title, buttonText, handleSubmit, handleClo
                 onClose={handleClose}
                 open={openState}
                 BackdropProps={{ style: { backgroundColor: "#5C2FCF", opacity: 0.5 } }}
-                PaperProps={{ style: { minWidth: "525px" } }}>
+                PaperProps={{ style: { minWidth: "525px", maxWidth: "unset", maxHeight:"100%"} }}>
                 <DialogTitle className={classNames(styles.modal_title)}>{title}</DialogTitle>
-                <DialogContent>
+                <DialogContent className={classNames(styles.modal_content)}>
                     {children}
                 </DialogContent>
                 <Button className={classNames(styles.modal_button)} onClick={handleSubmit}>{buttonText}</Button>

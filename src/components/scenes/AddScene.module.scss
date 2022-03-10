@@ -1,0 +1,18 @@
+@use "../../styles/colors";
+
+.name-field{
+    width: 100%;
+    margin-top: 10px;
+    
+    label{
+        color: black;
+    }
+    
+    div{
+        border-radius: 0px;
+    }
+
+    *::before, *::after, *{
+        border: none !important;
+    }
+}
