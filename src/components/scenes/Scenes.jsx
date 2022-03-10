@@ -11,10 +11,11 @@ export default function Scenes({ cards = [], selected }) {
                 {cards.map((card, key) => (
                     <Fragment key={key}>
                     <Grid item xs={4}>
-                        <Card iconUrl={card.iconUrl} variant='on' title='on' outlined={selected && selected.id==card.id}/>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Card iconUrl={card.iconUrl} variant='off' title='off' outlined={selected && selected.id==card.id}/>
+                        <Card 
+                        iconUrl={card.iconUrl} 
+                        variant={card.variant} 
+                        title={card.title} 
+                        outlined={selected && selected.id==card.id}/>
                     </Grid>
                     </Fragment>
                 ))}

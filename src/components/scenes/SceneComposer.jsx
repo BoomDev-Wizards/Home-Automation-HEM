@@ -13,11 +13,14 @@ export default function SceneComposer({ devices, rooms, selected, onScene }) {
             <Grid container direction='column'>
             {rooms.map((el, index) => {
                 const roomDevices = devices.filter(device => device.roomId == el.id);
+                const onDevices = JSON.parse(JSON.stringify(roomDevices)).map(el=> Object.assign(el,{title:"on",variant:"on"}));
+                const offDevices = JSON.parse(JSON.stringify(roomDevices)).map(el=> Object.assign(el,{title:"off",variant:"off"}));
+                const currRoomDevices = onDevices.concat(offDevices).sort((a,b)=>a.id - b.id);
                 if (roomDevices.length > 0) {
                     return (
                         <Grid item key={index}>
                             <Typography variant="h4" className={classNames(styles["room-title"])}>{el.name}</Typography>
-                            <Scenes cards={roomDevices} selected={selected} />
+                            <Scenes cards={currRoomDevices} selected={selected} />
                         </Grid>
                     )
                 }
