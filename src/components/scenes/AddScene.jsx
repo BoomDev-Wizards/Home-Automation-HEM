@@ -4,9 +4,9 @@ import Modal from "../modal/Modal";
 import { TextField } from "@mui/material";
 import SceneComposer from "./SceneComposer";
 
-export default function AddScene({ devices, rooms, onScene, onSubmit }) {
+export default function AddScene({open, handleClose, devices, rooms, onScene, onSubmit }) {
     return (
-        <Modal open={true} title={"ADD SCENE"} buttonText={"ADD NEW SCENE"} handleSubmit={onSubmit}>
+        <Modal open={open} handleClose={handleClose} title={"ADD SCENE"} buttonText={"ADD NEW SCENE"} handleSubmit={onSubmit}>
             <TextField 
             className={classNames(styles["name-field"])} 
             label="Scene Name" 

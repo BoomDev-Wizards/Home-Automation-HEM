@@ -46,7 +46,7 @@ export default function About() {
         <h3>Some text to fit in</h3>
       </Modal> */}
       {/* <SceneComposer devices={devices} rooms={rooms}/> */}
-      <AddScene rooms={rooms} devices={devices}/>
+      <AddScene open={true} rooms={rooms} devices={devices}/>
     </Container>
   );
 }
