@@ -10,7 +10,7 @@ export default function Rooms({rooms}) {
                 {rooms.map((el, index) => {
                     return (
                         <Grid item key={index} xs={2}>
-                            <Card iconUrl={el.url} title={el.title} />
+                            <Card iconUrl={'/images/bed.svg'} title={el.name} />
                         </Grid>
                     )
                 })}

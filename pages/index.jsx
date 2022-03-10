@@ -7,6 +7,7 @@ import User from "../src/components/user/User";
 import Weather from "../src/components/weather/Weather";
 import Cameras from "../src/components/cameras/Cameras";
 import devicesData from "../data/devices.json";
+import roomData from "../data/rooms.json";
 import Energy from "../src/components/energy/Energy";
 import Rooms from "../src/components/rooms/Rooms";
 import { Container, Grid, Typography } from "@mui/material";
@@ -51,13 +52,10 @@ export default function Index() {
     { temperature: 10, hour: 17 },
   ]
 
-  const roomsArr = [
-    { url: '/images/bed.svg', title: 'bedroom' },
-    { url: '/images/bed.svg', title: 'bedroom' },
-    { url: '/images/bed.svg', title: 'bedroom' },
-    { url: '/images/bed.svg', title: 'bedroom' },
-    { url: '/images/bed.svg', title: 'bedroom' },
-  ]
+  const [rooms,setRooms] = useState([]);
+  useEffect(()=>{
+    setRooms(roomData.rooms);
+  },[])
 
   return (
     <Fragment>
@@ -90,9 +88,9 @@ export default function Index() {
             <Grid item xs={6}>
               <Energy data={chartData} />
             </Grid>
-            <Grid item item xs={12}>
+            <Grid item xs={12}>
               <Typography variant="h4" className={classNames(styles["comp_name"])}>Rooms</Typography>
-              <Rooms rooms={roomsArr} />
+              <Rooms rooms={rooms} />
             </Grid>
           </Grid>
         </Container>

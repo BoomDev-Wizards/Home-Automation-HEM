@@ -1,13 +1,12 @@
 import styles from "./SceneComposer.module.scss";
 import classNames from "classnames";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Grid, Typography } from "@mui/material";
 import Scenes from "./Scenes";
 
 export default function SceneComposer({ devices, rooms, selected, onScene }) {
 
     const [currentRoom, setCurrentRoom] = useState(rooms[0]);
-    const roomDevice = useMemo(()=>devices.filter(device=>device.roomId),[currentRoom])
 
     return (
         <div className={classNames(styles["composer-container"])}>
