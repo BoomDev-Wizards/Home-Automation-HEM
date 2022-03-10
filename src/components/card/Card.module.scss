@@ -53,6 +53,7 @@
     .card_title{
         color: colors.$text_primary;
     }
+
 }
 
 .card_off {
@@ -66,6 +67,7 @@
     .card_title{
         color: colors.$primary_main;
     }
+
 }
 
 
@@ -94,8 +96,13 @@
             color: colors.$highlight;
         }
     }
+
 }
 
-.outlined {
+.card_off.outlined, .card_offline.outlined {
     border: 3px solid colors.$primary_main;
+}
+
+.card_on.outlined{
+    border: 3px solid colors.$secondary_main;
 }
