@@ -11,20 +11,20 @@ export default function SceneComposer({ devices, rooms, selected, onScene }) {
     return (
         <div className={classNames(styles["composer-container"])}>
             <Grid container direction='column'>
-            {rooms.map((el, index) => {
-                const roomDevices = devices.filter(device => device.roomId == el.id);
-                const onDevices = JSON.parse(JSON.stringify(roomDevices)).map(el=> Object.assign(el,{title:"on",variant:"on"}));
-                const offDevices = JSON.parse(JSON.stringify(roomDevices)).map(el=> Object.assign(el,{title:"off",variant:"off"}));
-                const currRoomDevices = onDevices.concat(offDevices).sort((a,b)=>a.id - b.id);
-                if (roomDevices.length > 0) {
-                    return (
-                        <Grid item key={index}>
-                            <Typography variant="h4" className={classNames(styles["room-title"])}>{el.name}</Typography>
-                            <Scenes cards={currRoomDevices} selected={selected} />
-                        </Grid>
-                    )
-                }
-            })}
+                {rooms.map((el, index) => {
+                    const roomDevices = devices.filter(device => device.roomId == el.id);
+                    const onDevices = JSON.parse(JSON.stringify(roomDevices)).map(el => Object.assign(el, { title: "on", variant: "on" }));
+                    const offDevices = JSON.parse(JSON.stringify(roomDevices)).map(el => Object.assign(el, { id: el.id + 0.1, title: "off", variant: "off" }));
+                    const currRoomDevices = onDevices.concat(offDevices).sort((a, b) => a.id - b.id);
+                    if (roomDevices.length > 0) {
+                        return (
+                            <Grid item key={index}>
+                                <Typography variant="h4" className={classNames(styles["room-title"])}>{el.name}</Typography>
+                                <Scenes cards={currRoomDevices} selected={selected} />
+                            </Grid>
+                        )
+                    }
+                })}
             </Grid>
         </div>
     )
