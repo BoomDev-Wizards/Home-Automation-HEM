@@ -6,7 +6,6 @@ import SceneComposer from "./SceneComposer";
 
 export default function EditScene({ open, handleClose, devices, rooms, onScene, onSubmit, selected }) {
     return (
-        <div>
             <Modal
                 open={open}
                 handleClose={handleClose}
@@ -19,9 +18,11 @@ export default function EditScene({ open, handleClose, devices, rooms, onScene, 
                     variant="filled"
                     style={{ margin: "10px" }}
                 />
-                <SceneComposer devices={devices} rooms={rooms} onScene={onScene} selected={selected} />
+                <SceneComposer className={classNames(styles["composer"])}
+                 devices={devices} 
+                 rooms={rooms} 
+                 onScene={onScene} 
+                 selected={selected} />
             </Modal>
-            <SceneComposer devices={[]} rooms={[]} onScene={onScene} selected={selected}/>
-        </div>
     )
 }
