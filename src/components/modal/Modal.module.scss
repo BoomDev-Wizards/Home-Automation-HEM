@@ -18,6 +18,7 @@
 
 .modal_dialog .modal_button{
     margin:0 auto 40px auto;
+    min-width: 40%;
     max-width: 60%;
     background-color: colors.$primary_main;
     color: colors.$text_primary;
