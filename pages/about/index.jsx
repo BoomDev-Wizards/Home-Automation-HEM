@@ -12,7 +12,7 @@ import roomData from "../../data/rooms.json";
 import AddScene from "../../src/components/scenes/AddScene";
 import EditScene from "../../src/components/scenes/EditScene";
 import AddRoom from "../../src/components/rooms/AddRoom";
-import { ChangeRoom } from "../../src/components/rooms/ChangeRoom";
+import ChangeRoom  from "../../src/components/rooms/ChangeRoom";
 
 
 export default function About() {

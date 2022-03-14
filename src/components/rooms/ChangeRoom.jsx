@@ -1,11 +1,11 @@
 import styles from "./ChangeRoom.module.scss";
 import classNames from "classnames";
 import Modal from "../modal/Modal";
-import { Grid } from "@mui/material";
 import Card from "../card/Card";
+import { Grid } from "@mui/material";
 import { useState } from "react";
 
-export function ChangeRoom({ open, handleClose, onSubmit, rooms }) {
+export default function ChangeRoom({ open, handleClose, onSubmit, rooms }) {
 
     const [selected,setSelected] = useState();
 

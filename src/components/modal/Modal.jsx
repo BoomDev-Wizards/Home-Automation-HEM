@@ -21,7 +21,9 @@ export default function Modal({ open, title, buttonText, handleSubmit, handleClo
                 </DialogContent>
                 <Button 
                 className={classNames(styles.modal_button)} 
-                sx={{backgroundColor: buttonProps.color}} 
+                style={{
+                    backgroundColor:buttonProps.color
+                }}
                 onClick={handleSubmit}>
                     {buttonText}
                 </Button>
