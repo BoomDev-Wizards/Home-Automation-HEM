@@ -1,5 +1,9 @@
 @use "../../styles/colors";
 
+.modal-wrapper{
+    position: relative;
+}
+
 .grid-wrapper{
     padding: 30px 0px;
     height: 400px;
