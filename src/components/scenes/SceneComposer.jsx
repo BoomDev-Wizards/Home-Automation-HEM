@@ -13,8 +13,9 @@ export default function SceneComposer({ devices, rooms, selected, onScene }) {
             <Grid container direction='column'>
                 {rooms.map((el, index) => {
                     const roomDevices = devices.filter(device => device.roomId == el.id);
-                    const onDevices = JSON.parse(JSON.stringify(roomDevices)).map(el => Object.assign(el, { title: "on", variant: "on" }));
-                    const offDevices = JSON.parse(JSON.stringify(roomDevices)).map(el => Object.assign(el, { id: el.id + 0.1, title: "off", variant: "off" }));
+                    let i = 1;
+                    const onDevices = JSON.parse(JSON.stringify(roomDevices)).map(el => Object.assign(el, {id: i++, title: "on", variant: "on" }));
+                    const offDevices = JSON.parse(JSON.stringify(roomDevices)).map(el => Object.assign(el, { id: i++, title: "off", variant: "off" }));
                     const currRoomDevices = onDevices.concat(offDevices).sort((a, b) => a.id - b.id);
                     if (roomDevices.length > 0) {
                         return (

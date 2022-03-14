@@ -48,7 +48,7 @@ export default function About() {
       </Modal> */}
       {/* <SceneComposer devices={devices} rooms={rooms}/> */}
       {/* <AddScene open={true} rooms={rooms} devices={devices}/> */}
-      <EditScene open={true} rooms={rooms} devices={devices} selected={{id:1}}/>
+      <EditScene open={true} rooms={rooms} devices={devices} selected={{id:4}}/>
     </Container>
   );
 }
