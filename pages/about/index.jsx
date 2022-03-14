@@ -11,6 +11,7 @@ import deviceData from "../../data/devices.json";
 import roomData from "../../data/rooms.json";
 import AddScene from "../../src/components/scenes/AddScene";
 import EditScene from "../../src/components/scenes/EditScene";
+import AddRoom from "../../src/components/rooms/AddRoom";
 
 
 export default function About() {
@@ -48,7 +49,8 @@ export default function About() {
       </Modal> */}
       {/* <SceneComposer devices={devices} rooms={rooms}/> */}
       {/* <AddScene open={true} rooms={rooms} devices={devices}/> */}
-      <EditScene open={true} rooms={rooms} devices={devices} selected={{id:4}}/>
+      {/* <EditScene open={true} rooms={rooms} devices={devices} selected={{id:14}}/> */}
+      <AddRoom open={true}/>
     </Container>
   );
 }

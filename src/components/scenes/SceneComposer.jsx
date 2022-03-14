@@ -14,8 +14,8 @@ export default function SceneComposer({ devices, rooms, selected, onScene }) {
                 {rooms.map((el, index) => {
                     const roomDevices = devices.filter(device => device.roomId == el.id);
                     let i = 1;
-                    const onDevices = JSON.parse(JSON.stringify(roomDevices)).map(el => Object.assign(el, {id: i++, title: "on", variant: "on" }));
-                    const offDevices = JSON.parse(JSON.stringify(roomDevices)).map(el => Object.assign(el, { id: i++, title: "off", variant: "off" }));
+                    const onDevices = JSON.parse(JSON.stringify(roomDevices)).map(el => Object.assign(el, {id: el.id, title: "on", variant: "on" }));
+                    const offDevices = JSON.parse(JSON.stringify(roomDevices)).map(el => Object.assign(el, { id: el.id+10, title: "off", variant: "off" }));
                     const currRoomDevices = onDevices.concat(offDevices).sort((a, b) => a.id - b.id);
                     if (roomDevices.length > 0) {
                         return (

@@ -1,0 +1,27 @@
+@use "../../styles/colors";
+
+.modal-wrapper{
+    position: relative;
+}
+
+.text_input{
+    font-size: 14px;
+    line-height: 16px;
+    background-color: colors.$background_light;
+    *,*::after,*::before{
+        border: none !important;
+    }
+
+    input{
+        height: 68px;
+    }
+
+    svg{
+        margin-left: 20px;
+    }
+}
+
+.input_wrapper{
+    margin: 32px 0px 10px 0px;
+    height: 68px;
+}
