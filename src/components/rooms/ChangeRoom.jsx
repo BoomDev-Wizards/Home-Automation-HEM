@@ -3,11 +3,16 @@ import classNames from "classnames";
 import Modal from "../modal/Modal";
 import Card from "../card/Card";
 import { Grid } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function ChangeRoom({ open, handleClose, onSubmit, rooms }) {
+export default function ChangeRoom({ open, handleClose, onSubmit, rooms, selected }) {
 
-    const [selected,setSelected] = useState();
+    const [selectedRoom,setSelected] = useState();
+    useEffect(()=>{
+        if(selected){
+            setSelected(selected.id)
+        }
+    },[selected]);
 
     return (
         <Modal
@@ -31,7 +36,7 @@ export default function ChangeRoom({ open, handleClose, onSubmit, rooms }) {
                             iconUrl={'/images/bed.svg'}
                             onClick={()=>setSelected(el.id)}
                             title={el.name}
-                            variant={selected==el.id?'on':'off'}
+                            variant={selectedRoom==el.id?'on':'off'}
                             />
                         </Grid>
                     )
