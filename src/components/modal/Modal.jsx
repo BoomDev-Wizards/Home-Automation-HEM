@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { Button, Dialog, DialogContent, DialogTitle } from "@mui/material";
 import { useState } from "react";
 
-export default function Modal({ open, title, buttonText, handleSubmit, handleClose, children }) {
+export default function Modal({ open, title, buttonText, handleSubmit, handleClose, buttonProps, children }) {
 
     const [openState, setOpenState] = useState(open)
 
@@ -19,7 +19,12 @@ export default function Modal({ open, title, buttonText, handleSubmit, handleClo
                 <DialogContent className={classNames(styles.modal_content)}>
                     {children}
                 </DialogContent>
-                <Button className={classNames(styles.modal_button)} onClick={handleSubmit}>{buttonText}</Button>
+                <Button 
+                className={classNames(styles.modal_button)} 
+                sx={{backgroundColor: buttonProps.color}} 
+                onClick={handleSubmit}>
+                    {buttonText}
+                </Button>
             </Dialog>
         </div>
     )

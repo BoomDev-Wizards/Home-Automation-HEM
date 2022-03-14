@@ -12,6 +12,7 @@ import roomData from "../../data/rooms.json";
 import AddScene from "../../src/components/scenes/AddScene";
 import EditScene from "../../src/components/scenes/EditScene";
 import AddRoom from "../../src/components/rooms/AddRoom";
+import { ChangeRoom } from "../../src/components/rooms/ChangeRoom";
 
 
 export default function About() {
@@ -50,7 +51,8 @@ export default function About() {
       {/* <SceneComposer devices={devices} rooms={rooms}/> */}
       {/* <AddScene open={true} rooms={rooms} devices={devices}/> */}
       {/* <EditScene open={true} rooms={rooms} devices={devices} selected={{id:14}}/> */}
-      <AddRoom open={true}/>
+      {/* <AddRoom open={true}/> */}
+      <ChangeRoom open={true} rooms={rooms}/>
     </Container>
   );
 }
