@@ -57,7 +57,7 @@ export default function About() {
       {/* <EditScene open={true} rooms={rooms} devices={devices} selected={{id:14}}/> */}
       {/* <AddRoom open={true}/> */}
       {/* <ChangeRoom open={true} rooms={rooms} selected={rooms[1]}/> */}
-      <AddDevice open={true} searching={true} onDevice={onDevice(devices[0])}/>
+      <AddDevice open={true} failed={true} onDevice={onDevice(devices[0])}/>
     </Container>
   );
 }
