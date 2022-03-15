@@ -14,6 +14,7 @@ import EditScene from "../../src/components/scenes/EditScene";
 import AddRoom from "../../src/components/rooms/AddRoom";
 import ChangeRoom  from "../../src/components/rooms/ChangeRoom";
 import AddDevice from "../../src/components/devices/AddDevice";
+import Register from "../../src/components/register/Register";
 
 
 export default function About() {
@@ -57,7 +58,8 @@ export default function About() {
       {/* <EditScene open={true} rooms={rooms} devices={devices} selected={{id:14}}/> */}
       {/* <AddRoom open={true}/> */}
       {/* <ChangeRoom open={true} rooms={rooms} selected={rooms[1]}/> */}
-      <AddDevice open={true} failed={true} onDevice={onDevice(devices[0])}/>
+      {/* <AddDevice open={true} failed={true} onDevice={onDevice(devices[0])}/> */}
+      <Register/>
     </Container>
   );
 }
