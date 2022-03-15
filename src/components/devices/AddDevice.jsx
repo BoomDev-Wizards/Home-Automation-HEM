@@ -8,6 +8,16 @@ export default function AddDevice({ searching, found, failed, onDevice, open, ha
 
     let device = onDevice;
 
+    if(failed){
+        searching=false;
+        found=false;
+    }
+
+    if(found){
+        searching=false;
+        failed=false;
+    }
+
     return (
         <Modal
             className={classNames(styles["modal-wrapper"])}
