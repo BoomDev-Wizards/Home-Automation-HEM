@@ -22,7 +22,7 @@ export default function ChangeRoom({ open, handleClose, onSubmit, rooms, selecte
             open={open}
             handleClose={handleClose}
             handleSubmit={onSubmit}
-            buttonProps ={{color:'#e150a6'}}
+            buttonProps ={'secondary'}
         >
             <Grid 
             className={classNames(styles["grid-wrapper"])}
