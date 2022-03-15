@@ -19,13 +19,14 @@ export default function Modal({ open, title, buttonText, handleSubmit, handleClo
                 <DialogContent className={classNames(styles.modal_content)}>
                     {children}
                 </DialogContent>
+                {buttonText?
                 <Button 
                 className={classNames(styles.modal_button)} 
-                // style={buttonProps?{backgroundColor: buttonProps.color}:null}
-                color={buttonProps?buttonProps:'primary'}
+                style={buttonProps=='secondary'?{backgroundColor: '#e150a6'}:null}
                 onClick={handleSubmit}>
                     {buttonText}
                 </Button>
+                :null}
             </Dialog>
         </div>
     )

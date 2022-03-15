@@ -13,6 +13,7 @@ import AddScene from "../../src/components/scenes/AddScene";
 import EditScene from "../../src/components/scenes/EditScene";
 import AddRoom from "../../src/components/rooms/AddRoom";
 import ChangeRoom  from "../../src/components/rooms/ChangeRoom";
+import AddDevice from "../../src/components/devices/AddDevice";
 
 
 export default function About() {
@@ -34,6 +35,9 @@ export default function About() {
     setRooms(roomData.rooms);
   },[])
 
+  function onDevice(someDeviceObj) {
+    return someDeviceObj;
+  }
  
   return (
     <Container maxWidth="sm">
@@ -52,7 +56,8 @@ export default function About() {
       {/* <AddScene open={true} rooms={rooms} devices={devices}/> */}
       {/* <EditScene open={true} rooms={rooms} devices={devices} selected={{id:14}}/> */}
       {/* <AddRoom open={true}/> */}
-      <ChangeRoom open={true} rooms={rooms} selected={rooms[1]}/>
+      {/* <ChangeRoom open={true} rooms={rooms} selected={rooms[1]}/> */}
+      <AddDevice open={true} searching={true} onDevice={onDevice(devices[0])}/>
     </Container>
   );
 }

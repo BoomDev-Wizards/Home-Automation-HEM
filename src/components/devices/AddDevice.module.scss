@@ -1,0 +1,57 @@
+@use "../../styles/colors";
+
+.content{
+    width: 525px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    padding: 30px 0px;
+}
+
+.search_icon{
+    position: absolute;
+    left: 145px;
+    top:120px;
+}
+
+.fail_icon{
+    position: absolute;
+    left: 180px;
+    top:150px;
+}
+
+.device_icon{
+    width: 200px;
+    position: absolute;
+    left: 160px;
+    top:140px;
+}
+
+.progress{
+    position: absolute;
+    top: 30px;
+    left: 65px;
+}
+
+.progress circle{
+    color: rgba(colors.$primary_main, 0.07);
+};
+
+.progress__filled{
+    position: absolute;
+    top: 30px;
+    left: 65px;
+}
+
+.progress__filled circle{
+    color: rgba(colors.$primary_main, 0.07);
+}
+
+.action_text{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    color: colors.$primary_main;
+    text-transform: uppercase;
+}
