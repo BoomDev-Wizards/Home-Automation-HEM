@@ -11,6 +11,7 @@ export default function Login() {
                 fullWidth
                 type="email"
                 variant="standard"
+                placeholder="Email"
                 className={classNames(styles["input-field"])}
                 InputProps={{
                     startAdornment: (
@@ -24,6 +25,7 @@ export default function Login() {
                 fullWidth
                 type="password"
                 variant="standard"
+                placeholder="Password"
                 className={classNames(styles["input-field"])}
                 InputProps={{
                     startAdornment: (

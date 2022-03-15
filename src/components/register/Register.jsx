@@ -35,7 +35,7 @@ export default function Register() {
                     )
                 }}
             />
-                        <TextField
+            <TextField
                 fullWidth
                 type="password"
                 placeholder="Retype Password"
