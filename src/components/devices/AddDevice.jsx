@@ -60,7 +60,7 @@ export default function AddDevice({ searching, found, failed, onDevice, open, ha
                             variant="h6"
                             className={classNames(styles["action_text"])}
                         >
-                            NO DEVICES FOUND...
+                            NO DEVICE FOUND
                         </Typography>
                     </div>
                     : onDevice ?
