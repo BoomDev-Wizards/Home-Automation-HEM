@@ -40,10 +40,10 @@ export default function AddDevice({ searching, found, failed, onDevice, open, ha
                 : (failed ?
                     <div className={classNames(styles.content)}>
                         <CircularProgress
-                            variant="indeterminate"
+                            variant="determinate"
                             value={100}
                             size={400}
-                            className={classNames(styles.progress__filled)}
+                            className={classNames(styles.progress_fail)}
                         />
                         <img src={'/images/no-connection.svg'} alt="search_icon" className={classNames(styles.fail_icon)} />
                         <Typography
