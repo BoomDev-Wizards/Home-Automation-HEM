@@ -12,6 +12,7 @@ export default function RegisterPage() {
           <Register />
         </Container>
       </Paper>
+          <p>Already registered? <a href="/login">Go to login.</a></p>
     </div>
   );
 }

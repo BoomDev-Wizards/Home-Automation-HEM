@@ -2,6 +2,7 @@
 
 .wrapper {
     display: flex;
+    flex-direction: column;
     min-height: 100vh;
     position: relative;
     align-items: center;
@@ -22,6 +23,7 @@
 
 .paper {
     position: relative;
+    margin-top: 10vh;
     background-color: colors.$text_primary;
     box-shadow: 0 0 20px rgb(150 150 150 / 50%) !important;
 }
