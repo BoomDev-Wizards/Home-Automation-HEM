@@ -23,7 +23,7 @@ export default function RegisterPage() {
       if(result.status!==200 && result.status!==201){
         setErrors(data);
       }else{
-        router.push('/')
+        router.push('/login')
       }
   }
 
