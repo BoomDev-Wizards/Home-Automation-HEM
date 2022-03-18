@@ -1,4 +1,4 @@
-import { React, useState, useEffect, Fragment } from "react";
+import { React, useState, useEffect, Fragment, useContext } from "react";
 import Header from "../src/components/header/Header";
 import Navigation from "../src/components/navigation/Navigation";
 import Scenes from "../src/components/scenes/Scenes";
@@ -15,8 +15,13 @@ import Thermostat from "../src/components/thermostat/Thermostat";
 
 import styles from "./Dashboard.module.scss";
 import classNames from "classnames";
+import { useRouter } from "next/dist/client/router";
+import { AppContext } from "../src/components/common/AppProvider";
 
 export default function Index() {
+
+  const router = useRouter();
+
   const [devices, setDevices] = useState([]);
   useEffect(() => {
     setDevices(devicesData);
@@ -24,12 +29,12 @@ export default function Index() {
 
   const cameras = {
     "cameras": [
-      { "videoUrl": "/cameras/balcony.mp4" },
-      { "videoUrl": "/cameras/bathroom.mp4" },
-      { "videoUrl": "/cameras/front-door.mp4" },
-      { "videoUrl": "/cameras/garden.mp4" },
-      { "videoUrl": "/cameras/kitchen.mp4" },
-      { "videoUrl": "/cameras/living room 2.mp4" },
+      { "videoUrl": "" },
+      { "videoUrl": "" },
+      { "videoUrl": "" },
+      { "videoUrl": "" },
+      { "videoUrl": "" },
+      { "videoUrl": "" },
     ],
     "hasButton": false
   }
@@ -52,49 +57,59 @@ export default function Index() {
     { temperature: 10, hour: 17 },
   ]
 
-  const [rooms,setRooms] = useState([]);
-  useEffect(()=>{
+  const [rooms, setRooms] = useState([]);
+  useEffect(() => {
     setRooms(roomData.rooms);
-  },[])
+  }, [])
 
+  let token
+  if (typeof window !== 'undefined') {
+    token = localStorage.getItem('accessToken')
+    if (!token) {
+      window.location.replace("/login");
+    }
+  }
+
+  const value = useContext(AppContext);
+  console.log(value.scenes);  
   return (
-    <Fragment>
-      <Navigation />
-      <main className={classNames(styles["wrapper"])}>
-        <div className={classNames(styles["hero_line"])}></div>
-        <Container className={classNames(styles["container"])} maxWidth={false}>
-          <Grid container spacing={2} alignItems={'stretch'}>
-            <Grid item xs={12}>
-              <Header className={classNames(styles["head"])}
-                left={<User name="John Doe" avatar="/images/avatar.png" size={114} hasWelcome={true} headingSize="h1" />}
-                right={<Fragment>
-                  <Weather degrees={22} type="cloudy" />
-                  <Time className={classNames(styles.time)}/>
-                </Fragment>}
-              />
+      <Fragment>
+        <Navigation />
+        <main className={classNames(styles["wrapper"])}>
+          <div className={classNames(styles["hero_line"])}></div>
+          <Container className={classNames(styles["container"])} maxWidth={false}>
+            <Grid container spacing={2} alignItems={'stretch'}>
+              <Grid item xs={12}>
+                <Header className={classNames(styles["head"])}
+                  left={<User name="John Doe" avatar="/images/avatar.png" size={114} hasWelcome={true} headingSize="h1" />}
+                  right={<Fragment>
+                    <Weather degrees={22} type="cloudy" />
+                    <Time className={classNames(styles.time)} />
+                  </Fragment>}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <Typography variant="h4" className={classNames(styles["comp_name"])}>Thermostat</Typography>
+                <Thermostat data={tempDataArr} />
+              </Grid>
+              <Grid item xs={6}>
+                <Typography variant="h4" className={classNames(styles["comp_name"])} >Scenes</Typography>
+                <Scenes cards={devices.devices} />
+              </Grid>
+              <Grid item xs={6}>
+                <Typography variant="h4">Cameras</Typography>
+                <Cameras cameras={cameras.cameras} hasButton={cameras.hasButton} />
+              </Grid>
+              <Grid item xs={6}>
+                <Energy data={chartData} />
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant="h4" className={classNames(styles["comp_name"])}>Rooms</Typography>
+                <Rooms rooms={rooms} />
+              </Grid>
             </Grid>
-            <Grid item xs={6}>
-              <Typography variant="h4" className={classNames(styles["comp_name"])}>Thermostat</Typography>
-              <Thermostat data={tempDataArr} />
-            </Grid>
-            <Grid item xs={6}>
-              <Typography variant="h4" className={classNames(styles["comp_name"])} >Scenes</Typography>
-              <Scenes cards={devices.devices} />
-            </Grid>
-            <Grid item xs={6}>
-              <Typography variant="h4">Cameras</Typography>
-              <Cameras cameras={cameras.cameras} hasButton={cameras.hasButton} />
-            </Grid>
-            <Grid item xs={6}>
-              <Energy data={chartData} />
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="h4" className={classNames(styles["comp_name"])}>Rooms</Typography>
-              <Rooms rooms={rooms} />
-            </Grid>
-          </Grid>
-        </Container>
-      </main>
-    </Fragment>
+          </Container>
+        </main>
+      </Fragment>
   )
 }
