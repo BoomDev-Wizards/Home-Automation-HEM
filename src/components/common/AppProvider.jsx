@@ -80,7 +80,9 @@ export default function AppProvider({ children }) {
     }
 
     useEffect(() => {
-        refresh();
+        if(localStorage.getItem('accessToken')){
+            refresh();
+        }
     }, [token])
 
 

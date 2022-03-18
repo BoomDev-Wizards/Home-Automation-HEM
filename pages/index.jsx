@@ -15,7 +15,6 @@ import Thermostat from "../src/components/thermostat/Thermostat";
 
 import styles from "./Dashboard.module.scss";
 import classNames from "classnames";
-import { useRouter } from "next/dist/client/router";
 import { AppContext } from "../src/components/common/AppProvider";
 
 export default function Index() {
@@ -69,7 +68,7 @@ export default function Index() {
   }
 
   const value = useContext(AppContext);
-  console.log(value.scenes);  
+  
   return (
       <Fragment>
         <Navigation />
