@@ -13,7 +13,7 @@ export default function AppProvider({ children }) {
 
     let token
     if (typeof window !== 'undefined') {
-        token = localStorage.getItem('accessToken')
+        token = `Bearer ${localStorage.getItem('accessToken')}`
     }
     const [rooms, getRooms] = useState([]);
     const [devices, getDevices] = useState([]);
@@ -81,13 +81,6 @@ export default function AppProvider({ children }) {
 
     useEffect(() => {
         refresh();
-        console.log(
-            rooms,
-            devices,
-            thermostats,
-            properties,
-            scenes,
-        );
     }, [token])
 
 

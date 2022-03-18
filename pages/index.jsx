@@ -20,8 +20,6 @@ import { AppContext } from "../src/components/common/AppProvider";
 
 export default function Index() {
 
-  const router = useRouter();
-
   const [devices, setDevices] = useState([]);
   useEffect(() => {
     setDevices(devicesData);
@@ -64,7 +62,7 @@ export default function Index() {
 
   let token
   if (typeof window !== 'undefined') {
-    token = localStorage.getItem('accessToken')
+    token = `Bearer ${localStorage.getItem('accessToken')}`
     if (!token) {
       window.location.replace("/login");
     }
