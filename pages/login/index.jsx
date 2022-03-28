@@ -9,23 +9,23 @@ export default function LoginPage() {
 
   const router = useRouter();
 
-  const [errors,setErrors] = useState({})
+  const [errors, setErrors] = useState({})
 
   async function onSubmit(userData) {
-      const result = await fetch('https://hem-api.herokuapp.com/login',{
-        method: 'POST',
-        headers:{
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData)
-      });
-      const data = await result.json();
-      if(result.status!==200 && result.status!==201){
-        setErrors(data);
-      }else{
-        localStorage.setItem('accessToken',data.accessToken);
-        router.push('/')
-      }
+    const result = await fetch('https://hem-api.herokuapp.com/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData)
+    });
+    const data = await result.json();
+    if (result.status !== 200 && result.status !== 201) {
+      setErrors(data);
+    } else {
+      localStorage.setItem('accessToken', data.accessToken);
+      router.push('/')
+    }
   }
 
 
@@ -34,9 +34,10 @@ export default function LoginPage() {
     <div className={classNames(styles["wrapper"])}>
       <Paper className={classNames(styles["paper"])}>
         <Container className={classNames(styles["container"])}>
-          <Login onSubmit={onSubmit} err={errors}/>
+          <Login onSubmit={onSubmit} err={errors} />
         </Container>
       </Paper>
+      <p>Don't have account yet? <a href="/register">Go to register.</a></p>
     </div>
   );
 }

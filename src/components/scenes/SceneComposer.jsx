@@ -6,7 +6,6 @@ import Scenes from "./Scenes";
 
 export default function SceneComposer({ devices, rooms, selected, onScene }) {
 
-    const [currentRoom, setCurrentRoom] = useState(rooms[0]);
 
     return (
         <div className={classNames(styles["composer-container"])}>
@@ -21,7 +20,7 @@ export default function SceneComposer({ devices, rooms, selected, onScene }) {
                         return (
                             <Grid item key={index}>
                                 <Typography variant="h4" className={classNames(styles["room-title"])}>{el.name}</Typography>
-                                <Scenes cards={currRoomDevices} selected={selected} />
+                                <Scenes cards={currRoomDevices} selected={selected} onCardClick={onScene}/>
                             </Grid>
                         )
                     }

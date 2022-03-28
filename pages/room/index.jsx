@@ -11,15 +11,15 @@ export default function Room() {
 
     const cameras = {
         "cameras": [
-            { "videoUrl": "/cameras/balcony.mp4" },
-            { "videoUrl": "/cameras/bathroom.mp4" },
-            { "videoUrl": "/cameras/front-door.mp4" },
-            { "videoUrl": "/cameras/garden.mp4" },
-            { "videoUrl": "/cameras/kitchen.mp4" },
-            { "videoUrl": "/cameras/living room 2.mp4" },
+          { "videoUrl": "https://static.videezy.com/system/resources/previews/000/017/340/original/Room_In_The_Palace_Of_Iturbide_Mexico_5013e.mp4" },
+          { "videoUrl": "https://static.videezy.com/system/resources/previews/000/055/870/original/1newroomjapanese48558899885.mp4" },
+          { "videoUrl": "https://static.videezy.com/system/resources/previews/000/051/944/original/0001-0443.mp4" },
+          { "videoUrl": "https://static.videezy.com/system/resources/previews/000/053/432/original/1newroomjapanes88888888.mp4" },
+          { "videoUrl": "https://static.videezy.com/system/resources/previews/000/035/346/original/005_06.mp4" },
+          { "videoUrl": "https://static.videezy.com/system/resources/previews/000/051/948/original/greenroominterior4545121326555899.mp4" },
         ],
         "hasButton": false
-    }
+      }
 
     const devicesArr = [
         { "title": "on", "iconUrl": "/images/bulb.svg" },
@@ -45,7 +45,7 @@ export default function Room() {
                                     <Typography className={classNames(styles["dev_head"])}>Devices</Typography>
                                     <Typography variant="h2"
                                         className={classNames(styles["room_count"])}
-                                    >{devicesArr.filter(el=>el.title!='offline').length}</Typography>
+                                    >{devicesArr.filter(el => el.title != 'offline').length}</Typography>
                                 </div>}
                             />
                         </Grid>

@@ -3,6 +3,7 @@
 .wrapper {
     display: flex;
     min-height: 100vh;
+    flex-direction: column;
     position: relative;
     align-items: center;
     justify-content: center;
@@ -28,4 +29,9 @@
 
 .container {
     padding: 20px;
+
+    p{  
+        text-align: center;
+        margin: 10px;
+    }
 }

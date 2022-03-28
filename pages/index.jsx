@@ -16,6 +16,8 @@ import Thermostat from "../src/components/thermostat/Thermostat";
 import styles from "./Dashboard.module.scss";
 import classNames from "classnames";
 import { AppContext } from "../src/components/common/AppProvider";
+import AddScene from "../src/components/scenes/AddScene";
+import EditScene from "../src/components/scenes/EditScene";
 
 export default function Index() {
 
@@ -26,12 +28,12 @@ export default function Index() {
 
   const cameras = {
     "cameras": [
-      { "videoUrl": "" },
-      { "videoUrl": "" },
-      { "videoUrl": "" },
-      { "videoUrl": "" },
-      { "videoUrl": "" },
-      { "videoUrl": "" },
+      { "videoUrl": "https://static.videezy.com/system/resources/previews/000/017/340/original/Room_In_The_Palace_Of_Iturbide_Mexico_5013e.mp4" },
+      { "videoUrl": "https://static.videezy.com/system/resources/previews/000/055/870/original/1newroomjapanese48558899885.mp4" },
+      { "videoUrl": "https://static.videezy.com/system/resources/previews/000/051/944/original/0001-0443.mp4" },
+      { "videoUrl": "https://static.videezy.com/system/resources/previews/000/053/432/original/1newroomjapanes88888888.mp4" },
+      { "videoUrl": "https://static.videezy.com/system/resources/previews/000/035/346/original/005_06.mp4" },
+      { "videoUrl": "https://static.videezy.com/system/resources/previews/000/051/948/original/greenroominterior4545121326555899.mp4" },
     ],
     "hasButton": false
   }
@@ -59,19 +61,25 @@ export default function Index() {
     setRooms(roomData.rooms);
   }, [])
 
+
   let token
   if (typeof window !== 'undefined') {
     token = `Bearer ${localStorage.getItem('accessToken')}`
-    if (!token) {
+    if (!localStorage.getItem('accessToken')) {
       window.location.replace("/login");
     }
   }
 
+  const [addSceneModal, setAddSceneModal] = useState(false);
+  const [editSceneModal, setEditSceneModal] = useState(false);
+
+
   const value = useContext(AppContext);
-  
+
   return (
+    typeof window !== 'undefined' ? localStorage.getItem('accessToken') ?
       <Fragment>
-        <Navigation />
+        <Navigation rooms={rooms} />
         <main className={classNames(styles["wrapper"])}>
           <div className={classNames(styles["hero_line"])}></div>
           <Container className={classNames(styles["container"])} maxWidth={false}>
@@ -91,7 +99,11 @@ export default function Index() {
               </Grid>
               <Grid item xs={6}>
                 <Typography variant="h4" className={classNames(styles["comp_name"])} >Scenes</Typography>
-                <Scenes cards={devices.devices} />
+                <Scenes 
+                cards={devices.devices} 
+                hasButton={true} 
+                onButtonClick={() => setAddSceneModal(true)} 
+                onCardClick = {() => setEditSceneModal(true)}/>
               </Grid>
               <Grid item xs={6}>
                 <Typography variant="h4">Cameras</Typography>
@@ -107,6 +119,20 @@ export default function Index() {
             </Grid>
           </Container>
         </main>
+        <AddScene
+          devices={devices.devices}
+          rooms={rooms}
+          open={addSceneModal}
+          handleClose={() => setAddSceneModal(false)}
+          onSubmit={() => setAddSceneModal(false)} />
+        <EditScene
+          devices={devices.devices}
+          rooms={rooms}
+          open={editSceneModal}
+          handleClose={() => setEditSceneModal(false)}
+          onSubmit={() => setEditSceneModal(false)} />
       </Fragment>
+      : null
+      : null
   )
 }

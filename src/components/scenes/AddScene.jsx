@@ -3,8 +3,12 @@ import classNames from "classnames";
 import Modal from "../modal/Modal";
 import { TextField } from "@mui/material";
 import SceneComposer from "./SceneComposer";
+import { useState } from "react";
 
-export default function AddScene({open, handleClose, devices, rooms, onScene, onSubmit }) {
+export default function AddScene({open, handleClose, devices, rooms, onSubmit }) {
+
+    const [selected,setSelected] = useState(open?devices[0]:null);
+
     return (
         <Modal 
         open={open} 
@@ -18,7 +22,7 @@ export default function AddScene({open, handleClose, devices, rooms, onScene, on
             variant="filled"
             style={{margin:"10px"}}
             />
-            <SceneComposer devices={devices} rooms={rooms} onScene={onScene}/>
+            <SceneComposer devices={devices} rooms={rooms} selected={selected}/>
         </Modal>
     )
 }

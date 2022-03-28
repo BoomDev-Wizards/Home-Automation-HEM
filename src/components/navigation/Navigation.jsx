@@ -7,7 +7,7 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import BedOutlinedIcon from '@mui/icons-material/BedOutlined';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-export default function Navigation() {
+export default function Navigation({rooms}) {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -52,13 +52,13 @@ export default function Navigation() {
                 </div>
 
                 <List>
-                    {['Apartment', 'Living Room', 'Bedroom', 'Bathroom', 'Toilet', 'Patio', 'House', 'Living Room', 'Bedroom'].map((text, key) => (
-                        <ListItem button key={key} className={text == 'Apartment' || text == "House" ? classNames(styles["header-item"]) : ''}>
+                    {[{name:'Apartment'},...rooms].map((text, key) => (
+                        <ListItem button key={key} className={text.name == 'Apartment' || text == "House" ? classNames(styles["header-item"]) : ''}>
                             <ListItemIcon>
-                                {text == 'Apartment' || text == 'House' ? <HomeOutlinedIcon /> : <BedOutlinedIcon />}
+                                {text.name == 'Apartment' || text == 'House' ? <HomeOutlinedIcon /> : <BedOutlinedIcon />}
                             </ListItemIcon>
-                            <ListItemText primary={text} />
-                            <Badge badgeContent={4} color={text == 'Apartment' || text == 'House' ? "secondary" : "error"} className={classNames(styles["badge"])} />
+                            <ListItemText primary={text.name} />
+                            <Badge badgeContent={0} color={text.name == 'Apartment' || text == 'House' ? "secondary" : "error"} className={classNames(styles["badge"])} />
                         </ListItem>
                     ))}
                 </List>
