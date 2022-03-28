@@ -6,8 +6,10 @@ import User from "../user/User";
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import BedOutlinedIcon from '@mui/icons-material/BedOutlined';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Link from "../link/Link";
+import { useRouter } from "next/router";
 
-export default function Navigation({rooms}) {
+export default function Navigation({ rooms }) {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -16,6 +18,12 @@ export default function Navigation({rooms}) {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const router = useRouter();
+    function logout() {
+        localStorage.clear();
+        router.push('/login');
+    }
 
     return (
         <div className={classNames(styles["navigation-container"])}>
@@ -45,21 +53,21 @@ export default function Navigation({rooms}) {
                             },
                         }}
                     >
-                        <MenuItem>
-                            Logout
-                        </MenuItem>
+                        <MenuItem onClick={logout}>Logout</MenuItem>
                     </Menu>
                 </div>
 
                 <List>
-                    {[{name:'Apartment'},...rooms].map((text, key) => (
-                        <ListItem button key={key} className={text.name == 'Apartment' || text == "House" ? classNames(styles["header-item"]) : ''}>
-                            <ListItemIcon>
-                                {text.name == 'Apartment' || text == 'House' ? <HomeOutlinedIcon /> : <BedOutlinedIcon />}
-                            </ListItemIcon>
-                            <ListItemText primary={text.name} />
-                            <Badge badgeContent={0} color={text.name == 'Apartment' || text == 'House' ? "secondary" : "error"} className={classNames(styles["badge"])} />
-                        </ListItem>
+                    {[{ name: 'Apartment' }, ...rooms].map((text, key) => (
+                        <Link key={key} href={text.name == 'Apartment'?'/':`/room/${text.name}`}>
+                            <ListItem button className={text.name == 'Apartment' || text == "House" ? classNames(styles["header-item"]) : ''}>
+                                <ListItemIcon>
+                                    {text.name == 'Apartment' || text == 'House' ? <HomeOutlinedIcon /> : <BedOutlinedIcon />}
+                                </ListItemIcon>
+                                <ListItemText primary={text.name} />
+                                <Badge badgeContent={0} color={text.name == 'Apartment' || text == 'House' ? "secondary" : "error"} className={classNames(styles["badge"])} />
+                            </ListItem>
+                        </Link>
                     ))}
                 </List>
             </Drawer>

@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function ChangeRoom({ open, handleClose, onSubmit, rooms, selected }) {
 
-    const [selectedRoom,setSelected] = useState();
+    const [selectedRoom,setSelected] = useState(selected);
     useEffect(()=>{
         if(selected){
             setSelected(selected.id)

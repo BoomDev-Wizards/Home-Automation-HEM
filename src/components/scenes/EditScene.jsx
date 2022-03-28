@@ -21,8 +21,7 @@ export default function EditScene({ open, handleClose, devices, rooms, onScene, 
                 <SceneComposer className={classNames(styles["scene-composer"])}
                  devices={devices} 
                  rooms={rooms} 
-                 onScene={onScene} 
-                 selected={selected} />
+                 onScene={onScene}/>
             </Modal>
     )
 }

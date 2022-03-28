@@ -2,6 +2,11 @@
 
 .navigation-container {
     display: block;
+
+    a{
+        text-decoration: none;
+        color: unset;
+    }
 }
 
 .user-container {
@@ -25,3 +30,4 @@
     margin-top: 20px !important;
     background-color: rgba(colors.$primary_main, 5%) !important;
 }
+

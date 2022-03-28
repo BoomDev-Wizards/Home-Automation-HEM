@@ -18,6 +18,8 @@ import classNames from "classnames";
 import { AppContext } from "../src/components/common/AppProvider";
 import AddScene from "../src/components/scenes/AddScene";
 import EditScene from "../src/components/scenes/EditScene";
+import AddRoom from "../src/components/rooms/AddRoom";
+import ChangeRoom from "../src/components/rooms/ChangeRoom";
 
 export default function Index() {
 
@@ -72,6 +74,8 @@ export default function Index() {
 
   const [addSceneModal, setAddSceneModal] = useState(false);
   const [editSceneModal, setEditSceneModal] = useState(false);
+  const [addRoomModal, setAddRoomModal] = useState(false);
+  const [changeRoomModal, setChangeRoomModal] = useState(false);
 
 
   const value = useContext(AppContext);
@@ -99,11 +103,11 @@ export default function Index() {
               </Grid>
               <Grid item xs={6}>
                 <Typography variant="h4" className={classNames(styles["comp_name"])} >Scenes</Typography>
-                <Scenes 
-                cards={devices.devices} 
-                hasButton={true} 
-                onButtonClick={() => setAddSceneModal(true)} 
-                onCardClick = {() => setEditSceneModal(true)}/>
+                <Scenes
+                  cards={devices.devices}
+                  hasButton={true}
+                  onButtonClick={() => setAddSceneModal(true)}
+                  onCardClick={() => setEditSceneModal(true)} />
               </Grid>
               <Grid item xs={6}>
                 <Typography variant="h4">Cameras</Typography>
@@ -114,7 +118,7 @@ export default function Index() {
               </Grid>
               <Grid item xs={12}>
                 <Typography variant="h4" className={classNames(styles["comp_name"])}>Rooms</Typography>
-                <Rooms rooms={rooms} />
+                  <Rooms rooms={rooms} onButtonClick={()=>setAddRoomModal(true)} onCardClick={()=>setChangeRoomModal(true)}/>
               </Grid>
             </Grid>
           </Container>
@@ -131,6 +135,17 @@ export default function Index() {
           open={editSceneModal}
           handleClose={() => setEditSceneModal(false)}
           onSubmit={() => setEditSceneModal(false)} />
+        <AddRoom
+          open={addRoomModal}
+          handleClose={() => setAddRoomModal(false)}
+          onSubmit={() => setAddRoomModal(false)}
+        />
+        <ChangeRoom
+          open={changeRoomModal}
+          rooms ={rooms}
+          handleClose={() => setChangeRoomModal(false)}
+          onSubmit={() => setChangeRoomModal(false)}
+        />
       </Fragment>
       : null
       : null

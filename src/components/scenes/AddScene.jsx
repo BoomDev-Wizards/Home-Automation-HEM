@@ -7,8 +7,6 @@ import { useState } from "react";
 
 export default function AddScene({open, handleClose, devices, rooms, onSubmit }) {
 
-    const [selected,setSelected] = useState(open?devices[0]:null);
-
     return (
         <Modal 
         open={open} 
@@ -22,7 +20,7 @@ export default function AddScene({open, handleClose, devices, rooms, onSubmit })
             variant="filled"
             style={{margin:"10px"}}
             />
-            <SceneComposer devices={devices} rooms={rooms} selected={selected}/>
+            <SceneComposer devices={devices} rooms={rooms}/>
         </Modal>
     )
 }

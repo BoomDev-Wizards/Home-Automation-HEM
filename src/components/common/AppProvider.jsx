@@ -60,12 +60,17 @@ export default function AppProvider({ children }) {
             })
         ]);
 
+        if(roomsResult.status=='401'){
+            localStorage.clear();
+        }
+
         const [
             roomsData, 
             devicesData, 
             thermostatsData, 
             propertiesData, 
-            scenesData] = await Promise.all([
+            scenesData
+            ] = await Promise.all([
             roomsResult.json(),
             devicesResult.json(),
             thermostatsResult.json(),

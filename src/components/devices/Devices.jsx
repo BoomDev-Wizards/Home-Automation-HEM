@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { Grid } from "@mui/material";
 import Card from "../card/Card";
 
-export default function Devices({ devices }) {
+export default function Devices({ devices, onButtonClick }) {
     return (
         <div className={classNames(styles["devices-wrapper"])}>
             <Grid container spacing={2}>
@@ -14,9 +14,9 @@ export default function Devices({ devices }) {
                         </Grid>
                     )
                 })}
-                {/* <Grid item xs={4}>
-                    <Card iconUrl={'/images/plus.svg'} variant={'off'} outlined={true} />
-                </Grid> */}
+                <Grid item xs={4}>
+                    <Card iconUrl={'/images/plus.svg'} variant={'off'} outlined={true} onClick={onButtonClick} />
+                </Grid>
             </Grid>
         </div>
     )

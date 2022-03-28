@@ -4,18 +4,18 @@ import Modal from "../modal/Modal";
 import { CircularProgress, Typography } from "@mui/material";
 
 
-export default function AddDevice({ searching, found, failed, onDevice, open, handleClose, onSubmit }) {
+export default function AddDevice({ searching, found, failed, onDevice, open, handleClose, onSubmit, tryAgain }) {
 
     let device = onDevice;
 
-    if(failed){
-        searching=false;
-        found=false;
+    if (failed) {
+        searching = false;
+        found = false;
     }
 
-    if(found){
-        searching=false;
-        failed=false;
+    if (found) {
+        searching = false;
+        failed = false;
     }
 
     return (
@@ -25,7 +25,7 @@ export default function AddDevice({ searching, found, failed, onDevice, open, ha
             buttonText={searching ? null : (found ? "SAVE DEVICE" : "TRY AGAIN")}
             open={open}
             handleClose={handleClose}
-            handleSubmit={onSubmit}
+            handleSubmit={failed ? tryAgain : onSubmit}
         >
             {searching ?
                 <div className={classNames(styles.content)}>
