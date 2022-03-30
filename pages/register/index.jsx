@@ -23,7 +23,8 @@ export default function RegisterPage() {
       if(result.status!==200 && result.status!==201){
         setErrors(data);
       }else{
-        router.push('/login')
+        localStorage.setItem('accessToken', data.accessToken);
+        router.push('/')
       }
   }
 
@@ -31,7 +32,7 @@ export default function RegisterPage() {
     <div className={classNames(styles["wrapper"])}>
       <Paper className={classNames(styles["paper"])}>
         <Container className={classNames(styles["container"])}>
-          <Register onSubmit={onSubmit} err={errors} />
+          <Register onSubmit={onSubmit} err={errors}/>
         </Container>
       </Paper>
           <p>Already registered? <a href="/login">Go to login.</a></p>

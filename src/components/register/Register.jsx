@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 
 export default function Register({onSubmit,err}) {
 
-    const [userData,setUserData] = useState({})
-    const [errorState,setErrorState] = useState(false)
+    const [userData,setUserData] = useState({});
+    const [errorState,setErrorState] = useState(false);
     const [errorMessage,setErrorMessage] = useState();
 
     useEffect(()=>{
@@ -19,7 +19,7 @@ export default function Register({onSubmit,err}) {
     },[err,userData])
 
     function validateData(userObj) {
-        const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/
+        const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/ //pattern used only for the sake of simplicity
         document.getElementById('pass').value = '';
         document.getElementById('rePass').value = '';
 
