@@ -26,7 +26,7 @@ export default function Navigation({ rooms }) {
     }
 
     return (
-        <div className={classNames(styles["navigation-container"])}>
+        <div className={classNames(styles["navigation"])}>
             <Drawer
                 anchor="left"
                 variant="permanent"

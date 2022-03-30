@@ -83,8 +83,8 @@ export default function Index() {
   return (
     typeof window !== 'undefined' ? localStorage.getItem('accessToken') ?
       <Fragment>
-        <Navigation rooms={rooms} />
         <main className={classNames(styles["wrapper"])}>
+        <Navigation rooms={rooms} />
           <div className={classNames(styles["hero_line"])}></div>
           <Container className={classNames(styles["container"])} maxWidth={false}>
             <Grid container spacing={2} alignItems={'stretch'}>
