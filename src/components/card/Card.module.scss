@@ -1,0 +1,108 @@
+@use "../../styles/colors";
+
+.card {
+    max-width: 243px;
+    height: 183px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .button {
+        width: 100%;
+        height: 100%;
+        padding: unset;
+
+        .wrapper {
+            background: transparent;
+            box-shadow: none;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+
+            * {
+                padding: unset;
+            }
+
+            .card_title{
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 16px;
+            }
+        }
+    }
+
+}
+
+.card_on {
+    background-color: colors.$primary_main;
+
+    .card_icon{
+        filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(323deg) brightness(105%) contrast(105%);
+    }
+
+    .chip_hidden{
+        position: absolute;
+        display: none;
+    }
+
+    .card_title{
+        color: colors.$text_primary;
+    }
+
+}
+
+.card_off {
+    background-color: rgba(colors.$primary_main, 0.1);
+
+    .chip_hidden{
+        position: absolute;
+        display: none;
+    }
+    
+    .card_title{
+        color: colors.$primary_main;
+    }
+
+}
+
+
+.card_offline {
+    background-color: rgba(colors.$highlight, 0.1);
+
+    .wrapper {
+        position: relative;
+
+        .card_chip{
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top:16px;
+            right: 14px;
+            border-radius: 7px;
+            background-color: colors.$highlight;
+            color: colors.$text_primary;
+        }
+
+        .card_icon{
+            filter: brightness(0) saturate(100%) invert(49%) sepia(20%) saturate(4019%) hue-rotate(328deg) brightness(105%) contrast(84%);
+        }
+        
+        .card_title{
+            color: colors.$highlight;
+        }
+    }
+
+}
+
+.card_off.outlined, .card_offline.outlined {
+    border: 3px solid colors.$primary_main;
+}
+
+.card_on.outlined{
+    border: 3px solid colors.$secondary_main;
+}

@@ -1,0 +1,30 @@
+@use "../../styles/colors";
+
+.modal_wrapper{
+    min-width: 525px;
+    max-width: 50vw;
+}
+
+.modal_title{
+    height: 96px;
+    text-transform: uppercase;
+    background-color: rgba(colors.$primary_main, 0.07);
+    text-align: center;
+    color: colors.$primary_main;
+    font-size: 28px;
+    line-height: 33px; 
+    padding-top: 35px !important;
+}
+
+.modal_dialog .modal_button{
+    margin:0 auto 40px auto;
+    min-width: 40%;
+    max-width: 60%;
+    background-color: colors.$primary_main;
+    color: colors.$text_primary;
+    border-radius: 30px;
+}
+
+.modal_dialog .modal_button:hover{
+    background-color: rgba(colors.$primary_main, 0.75);
+}

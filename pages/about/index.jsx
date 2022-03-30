@@ -3,8 +3,43 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Link from "../../src/components/link/Link";
+import Devices from "../../src/components/devices/Devices";
+import Modal from "../../src/components/modal/Modal";
+import SceneComposer from "../../src/components/scenes/SceneComposer";
+
+import deviceData from "../../data/devices.json";
+import roomData from "../../data/rooms.json";
+import AddScene from "../../src/components/scenes/AddScene";
+import EditScene from "../../src/components/scenes/EditScene";
+import AddRoom from "../../src/components/rooms/AddRoom";
+import ChangeRoom  from "../../src/components/rooms/ChangeRoom";
+import AddDevice from "../../src/components/devices/AddDevice";
+import Register from "../../src/components/register/Register";
+
 
 export default function About() {
+
+  // const cardsArr = [
+  //   {"title": "on", "iconUrl": "/images/bulb.svg"},
+  //   {"title": "off", "iconUrl": "/images/bulb.svg"},
+  //   {"title": "off", "iconUrl": "/images/plug.svg"},
+  //   {"title": "offline", "iconUrl": "/images/plug.svg"},
+  // ]
+
+  const [devices,setDevices] = React.useState([]);
+  React.useEffect(()=>{
+    setDevices(deviceData.devices);
+  },[])
+
+  const [rooms,setRooms] = React.useState([]);
+  React.useEffect(()=>{
+    setRooms(roomData.rooms);
+  },[])
+
+  function onDevice(someDeviceObj) {
+    return someDeviceObj;
+  }
+ 
   return (
     <Container maxWidth="sm">
       <Grid container justifyContent="center">
@@ -14,6 +49,17 @@ export default function About() {
           </Button>
         </Grid>
       </Grid>
+      {/* <Devices devices={cardsArr}/> */}
+      {/* <Modal open={true} title='Modal Title' buttonText='Modal Action'>
+        <h3>Some text to fit in</h3>
+      </Modal> */}
+      {/* <SceneComposer devices={devices} rooms={rooms}/> */}
+      {/* <AddScene open={true} rooms={rooms} devices={devices}/> */}
+      {/* <EditScene open={true} rooms={rooms} devices={devices} selected={{id:14}}/> */}
+      {/* <AddRoom open={true}/> */}
+      {/* <ChangeRoom open={true} rooms={rooms} selected={rooms[1]}/> */}
+      {/* <AddDevice open={true} failed={true} onDevice={onDevice(devices[0])}/> */}
+      <Register/>
     </Container>
   );
 }

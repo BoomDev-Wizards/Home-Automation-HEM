@@ -1,0 +1,27 @@
+@use "../../styles/colors";
+
+.header-wrapper{
+    margin:77px auto;
+    width: 75vw;
+    height: 195px;
+    min-width: 950px;
+}
+
+.header-wrapper .paper{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-wrapper .paper .right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 35px;
+}
+
+.header-wrapper .paper .left{
+    position: relative;
+}

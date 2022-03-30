@@ -1,0 +1,97 @@
+@use "../../styles/colors";
+
+.thermostat-container{
+    max-width: 802px;
+    height: 402px;
+    background: rgb(224,85,161);
+    background: linear-gradient(90deg, rgba(224,85,161,1) 0%, rgba(234,102,95,1) 100%);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.thermostat-container .circular-progress{
+    transform: rotate(-90deg);
+    width: 450px;
+    height: 450px;
+    position: absolute;
+    top: 0px;
+
+    .progress circle{
+        color: colors.$text_primary;
+        stroke-width: 2;
+    }
+}
+
+.thermostat-container .circular-progress .progress__filled{
+    position: absolute;
+    bottom: 15px;
+    left: 0px;
+    z-index: -1;
+    circle{
+        color: #B84C63;
+        stroke-width: 2;
+    }
+}
+
+.thermostat-container .progress-wrapper{
+    max-width: 802px;
+    height: 232px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.thermostat-container .circular-controls{
+    position: absolute;
+    bottom: 23px;
+
+    .temp__num{
+        font-style: normal;
+        font-weight: bold;
+        font-size: 85.4366px;
+        line-height: 100px;
+        color: colors.$text_primary;
+        margin-left:13px
+    }
+
+    button{
+        padding: 0;
+        border-radius: 100%;
+        background-color: transparent;
+        min-width: unset;
+        width: 40px;
+        height: 40px;
+    }
+
+    svg{
+        color: colors.$text_primary;
+        font-size: 3rem;
+    }
+}
+
+.thermostat-container .linear-progress{
+
+    background: rgba(0, 0, 0, 0.05);
+
+    span{
+        text-transform: uppercase;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 13px;
+        color: colors.$text_primary;
+        display: inline-block;
+        margin-left: 22px;
+        margin-top: 20px;
+        position: relative;
+    }
+
+    div{
+        position: absolute;
+    }
+
+    div>*{
+        overflow: visible;
+    }
+}
